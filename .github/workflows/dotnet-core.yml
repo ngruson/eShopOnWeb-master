@@ -27,7 +27,7 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: 
-        dotnet sonarscanner begin /o:ngruson /k:eShopOnWeb-master /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+        dotnet sonarscanner begin /o:ngruson /k:ngruson_eShopOnWeb-master /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
     - name: Test
       run: dotnet test ./eShopOnWeb.sln --no-restore --verbosity normal
     - name: SonarCloud Scan - End
