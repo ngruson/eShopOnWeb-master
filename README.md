@@ -1,7 +1,7 @@
 ![.NET Core](https://github.com/ngruson/eShopOnWeb-master/workflows/.NET%20Core/badge.svg)
 
 CI/CD with Github Actions
-test
+testje
 
 # Microsoft eShopOnWeb ASP.NET Core Reference Application
 
