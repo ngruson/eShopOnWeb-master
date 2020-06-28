@@ -29,7 +29,7 @@ jobs:
       run: 
         dotnet sonarscanner begin /o:ngruson /k:ngruson_eShopOnWeb-master /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
     - name: Test
-      run: dotnet test ./eShopOnWeb.sln --no-restore --verbosity normal
+      run: dotnet test ./eShopOnWeb.sln --no-restore --verbosity normal -p:CollectCoverage=true -p:CoverletOutputFormat=opencover
     - name: SonarCloud Scan - End
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
