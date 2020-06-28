@@ -1,4 +1,4 @@
-![Build Status](https://github.com/dotnet-architecture/eShopOnWeb/workflows/eShopOnWeb%20Build%20and%20Test/badge.svg)
+![.NET Core](https://github.com/ngruson/eShopOnWeb-master/workflows/.NET%20Core/badge.svg)
 
 CI/CD with Github Actions
 
