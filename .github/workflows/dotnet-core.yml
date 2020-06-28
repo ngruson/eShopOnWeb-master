@@ -1,0 +1,38 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Install global tool
+      run: dotnet tool install --global dotnet-sonarscanner --version 4.10.0
+    - name: Install dependencies
+      run: dotnet restore ./eShopOnWeb.sln
+    - name: Build
+      run: dotnet build ./eShopOnWeb.sln --configuration Release --no-restore
+    - name: SonarCloud Scan - Start
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: 
+        dotnet sonarscanner begin /o:ngruson /k:ngruson_eShopOnWeb-master /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+    - name: Test
+      run: dotnet test ./eShopOnWeb.sln --no-restore --verbosity normal
+    - name: SonarCloud Scan - End
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run:
+        dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
