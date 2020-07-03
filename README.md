@@ -1,4 +1,4 @@
-![.NET Core](https://github.com/ngruson/eShopOnWeb-master/workflows/.NET%20Core/badge.svg)
+![.NET Core](https://github.com/ngruson/eShopOnWeb-master/workflows/.NET%20Core/badge.svg) <br/>
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ngruson_eShopOnWeb-master&metric=alert_status)](https://sonarcloud.io/dashboard?id=ngruson_eShopOnWeb-master)
 
 # Microsoft eShopOnWeb ASP.NET Core Reference Application
